@@ -14,7 +14,6 @@ int main(void) {
     for(int i = 1; i <= num; ++i) {
         // 규칙 2n
         int starvalue = (2 * i) / 2;
-        int num = 0;
         for(int j = 1; j <= starvalue; ++j) {
             cout <<'*';
             
@@ -34,7 +33,6 @@ int main(void) {
     for(int i = num -1; i >= 1; --i) {
         // 규칙 2n
         int starvalue = (2 * i) / 2;
-        int num = 0;
         for(int j = 1; j <= starvalue; ++j) {
             cout <<'*';
         }

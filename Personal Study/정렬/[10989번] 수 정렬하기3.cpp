@@ -17,7 +17,7 @@ int main(void) {
     for(int i = 0; i < N; ++i) {
         int n;
         cin >> n;
-        arr[n] += 1;
+        arr[n] += 1; // 카운팅 정렬 사용
     }
 
     for(int i = 1; i <= 10000; ++i) {

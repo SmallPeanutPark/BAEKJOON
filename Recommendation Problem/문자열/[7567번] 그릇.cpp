@@ -7,7 +7,7 @@ int main(void) {
     string str;
     cin >> str;
     int len = str.length();
-    stack<int> st;
+    stack<int> st; // 스택 사용
     st.push(str[0]);
     int height = 10;
 

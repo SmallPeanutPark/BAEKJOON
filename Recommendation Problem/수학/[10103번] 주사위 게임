@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int roundnumber;
+    cin >> roundnumber;
+    int changsum = 100; int sangsum = 100;
+    for(int i = 0; i <roundnumber; ++i) {
+        int chang, sang;
+        cin >> chang >> sang;
+        if(chang < sang) {
+            // 창영이가 점수 잃음
+            changsum -= sang;
+        } else if(chang > sang) {
+            // 상덕이가 점수 잃음
+            sangsum -= chang;
+        } else {
+            // 아무도 잃지 않음
+        }
+    }
+    cout << changsum << '\n' << sangsum;
+}

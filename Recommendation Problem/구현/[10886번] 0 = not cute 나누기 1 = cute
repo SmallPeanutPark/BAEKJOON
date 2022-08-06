@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int mean0 = 0; // 귀엽지 않음
+    int mean1 = 0; // 귀여움
+    int N; // 설문조사 한 사람의 수
+    cin >> N;
+    for(int i = 0; i < N; ++i) {
+        int n;
+        cin >> n;
+        if(n == 0) mean0 += 1;
+        else mean1 += 1;
+    }
+
+    if(mean0 > mean1) cout << "Junhee is not cute!";
+    else cout << "Junhee is cute!";
+
+    return 0;
+}

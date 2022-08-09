@@ -6,7 +6,8 @@ int dy[4] = {0, 1, 0, -1};
 
 int fire_time[1001][1001];
 int sangguen_time[1001][1001];
-int board[1001][1001];
+// int board[1001][1001];
+string board[1001];
 
 int main(void) {
     int T;
@@ -18,25 +19,25 @@ int main(void) {
         queue<pair<int, int>> sangguen; // 상근이 좌표
 
         for(int j = 0; j < h; ++j) {
-            fill(board[j], board[j] + w, 0);
+            cin >> board[j];
             fill(fire_time[j], fire_time[j] + w, -1);
             fill(sangguen_time[j], sangguen_time[j] + w, -1);
+        }
+
+        bool issangguen = false;
+        bool isfire = false;
+        for(int j = 0; j < h; ++j) {
             for(int k = 0; k < w; ++k) {
-                char c;
-                cin >> c;
-                if(c == '#') {
-                    board[j][k] = -1;
-                } else if(c == '@') {
-                    // 상근이 시작 위치
+                if(board[j][k] == '@') {
                     sangguen.push({j,k});
                     sangguen_time[j][k] = 0;
-                } else if(c == '*') {
+                } else if(board[j][k] == '*') {
                     // 불 위치
                     fire.push({j,k});
                     fire_time[j][k] = 0;
-                } else {
-                }
+                } else {}
             }
+            if(issangguen && isfire) break;
         }
 
         // 불 시간 구하기
@@ -47,7 +48,7 @@ int main(void) {
                 int nx = cur.first + dx[j];
                 int ny = cur.second + dy[j];
                 if(nx < 0 || nx >= h || ny < 0 || ny >= w) continue;
-                if((board[nx][ny] == -1) || (fire_time[nx][ny] != -1)) continue;
+                if((board[nx][ny] == '#') || (fire_time[nx][ny] != -1)) continue;
                 fire.push({nx,ny});
                 fire_time[nx][ny] = fire_time[cur.first][cur.second] + 1;
             }
@@ -65,7 +66,7 @@ int main(void) {
                     cout << sangguen_time[cur.first][cur.second] + 1 << '\n';
                     break;
                 }
-                if((board[nx][ny] == -1) || (sangguen_time[nx][ny] != -1)) continue;
+                if((board[nx][ny] == '#') || (sangguen_time[nx][ny] != -1)) continue;
                 if((fire_time[nx][ny] != -1) && fire_time[nx][ny] <= sangguen_time[cur.first][cur.second] + 1) continue;
                 sangguen.push({nx,ny});
                 sangguen_time[nx][ny] = sangguen_time[cur.first][cur.second] + 1;

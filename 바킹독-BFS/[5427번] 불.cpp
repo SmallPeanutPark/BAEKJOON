@@ -6,7 +6,6 @@ int dy[4] = {0, 1, 0, -1};
 
 int fire_time[1001][1001];
 int sangguen_time[1001][1001];
-// int board[1001][1001];
 string board[1001];
 
 int main(void) {
@@ -22,11 +21,6 @@ int main(void) {
             cin >> board[j];
             fill(fire_time[j], fire_time[j] + w, -1);
             fill(sangguen_time[j], sangguen_time[j] + w, -1);
-        }
-
-        bool issangguen = false;
-        bool isfire = false;
-        for(int j = 0; j < h; ++j) {
             for(int k = 0; k < w; ++k) {
                 if(board[j][k] == '@') {
                     sangguen.push({j,k});
@@ -37,7 +31,6 @@ int main(void) {
                     fire_time[j][k] = 0;
                 } else {}
             }
-            if(issangguen && isfire) break;
         }
 
         // 불 시간 구하기

@@ -6,7 +6,6 @@ bool bfsvisited[1001];
 vector<int> adj_matrix[1001];
 
 void dfs(int cur) {
-    if(dfsvisited[cur]) return;
     dfsvisited[cur] = true;
     cout << cur << ' ';
     for(auto element : adj_matrix[cur]) {

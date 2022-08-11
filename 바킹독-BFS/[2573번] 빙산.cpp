@@ -58,17 +58,6 @@ void meltingIce() {
     }
 }
 
-void Icecheck() {
-    maxelement = 0;
-    for(int i = 0; i < N; ++i) {
-        for(int j = 0; j < M; ++j) {
-            if(board[i][j] > 0) {
-                maxelement += 1;
-            }
-        }
-    }
-}
-
 int main(void) {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);

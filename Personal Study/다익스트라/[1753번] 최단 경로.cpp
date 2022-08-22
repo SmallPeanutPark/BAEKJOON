@@ -20,8 +20,8 @@ void dijkstra(int cur) {
         int cur_cost = pq.top().first; // 현재 가중치
         pq.pop();
         for(pair<int, int> element : graph[cur_node]) {
-            int next_node = element.second;
-            int next_distance = element.first + cur_cost;
+            int next_node = element.first;
+            int next_distance = element.second + cur_cost;
             if(next_distance < cost[next_node]) {
                 cost[next_node] = next_distance;
                 pq.push({next_distance, next_node});

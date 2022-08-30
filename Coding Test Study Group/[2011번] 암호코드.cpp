@@ -8,12 +8,9 @@ int main(void) {
     ios_base::sync_with_stdio(false); 
     cin.tie(NULL);
     string str = "0";
-
-	string inputstr;
-	cin >> inputstr;
-	str += inputstr;
-
-	dp[0] = 1;
+    string inputstr;
+    cin >> inputstr;
+    str += inputstr;
     int len = str.length();
     if(str[1] == '0') {
         // 맨 첫번째가 0일 때는 암호코드를 만들 수 없음 -> 0 출력
@@ -21,7 +18,7 @@ int main(void) {
         return 0;
     }
     dp[0] = 1;
-	for (int i = 1; i < len; i++) {
+    for (int i = 1; i < len; i++) {
         if(i == 1) {
             int cur_num = str[i] - '0';
             if(cur_num >= 1 && cur_num <= 9) {
@@ -43,8 +40,7 @@ int main(void) {
                 }
             }
         }
-	}
-        
-	cout << dp[len - 1];
-	return 0;
+    }
+    cout << dp[len - 1];
+    return 0;
 }
